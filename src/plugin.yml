@@ -1,0 +1,10 @@
+name: Noticeboard
+main: se.peacehult.noticeboard.NoticeBoard
+version: '0.1'
+author: OskyEdz
+api-version: '1.15'
+website: https://peacehult.se
+commands:
+  welcome:
+    description: Open a Notice Board
+    usage: /noticeboard

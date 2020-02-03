@@ -20,7 +20,7 @@ public class BoardGUI implements InventoryHolder, Listener {
     private final Inventory inv;
 
     public BoardGUI() {
-        inv = Bukkit.createInventory(this, 39, "Notice Board"); //Replace this with language variable.
+        inv = Bukkit.createInventory(this, 54, "Notice Board"); //Replace this with language variable.
     }
 
     @NotNull

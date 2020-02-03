@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class BoardCommand implements CommandExecutor {
+public class BoardCommand extends BoardGUI implements CommandExecutor {
 
     // This method is called, when somebody uses our command
     @Override
@@ -13,9 +13,7 @@ public class BoardCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
-            BoardGUI.openInventory(player);
-
-            System.out.println(cmd);
+            openInventory(player);
         }
 
         // If the player (or console) uses our command correct, we can return true

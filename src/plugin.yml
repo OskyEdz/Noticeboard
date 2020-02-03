@@ -7,4 +7,4 @@ website: https://peacehult.se
 commands:
   noticeboard:
     description: Open a Notice Board
-    usage: /noticeboard
+    usage: Use §c/noticeboard

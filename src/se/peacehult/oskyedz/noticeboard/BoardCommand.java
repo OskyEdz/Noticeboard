@@ -3,6 +3,7 @@ package se.peacehult.oskyedz.noticeboard;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 public class BoardCommand extends BoardGUI implements CommandExecutor {
@@ -15,8 +16,9 @@ public class BoardCommand extends BoardGUI implements CommandExecutor {
 
             openInventory(player);
         }
-
-        // If the player (or console) uses our command correct, we can return true
+        if (sender instanceof ConsoleCommandSender) {
+            System.out.println("This command is a GUI, run in-game.");
+        }
         return true;
     }
 }

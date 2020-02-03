@@ -14,6 +14,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class BoardGUI implements InventoryHolder, Listener {
     // Create a new inventory, with "this" owner for comparison with other inventories, a size , called
@@ -31,20 +32,18 @@ public class BoardGUI implements InventoryHolder, Listener {
 
     // You can call this whenever you want to put the items in
     public void initializeItems() {
-        inv.addItem(createGuiItem(Material.PAPER, "Example Notice", "§aFirst line of notice", "§bPut up anything for sale!"));
-        inv.addItem(createGuiItem(Material.PAPER, "Example Notice #2", "§cMaybe you need something? Put it up!"));
+        inv.addItem(createGuiItem("Example Notice", "§aFirst line of notice", "§bPut up anything for sale!"));
+        inv.addItem(createGuiItem("Example Notice #2", "§cMaybe you need something? Put it up!"));
     }
 
     // Nice little method to create a gui item with a custom name, and description
-    private ItemStack createGuiItem(Material material, String name, String...lore) {
-        ItemStack item = new ItemStack(material, 1);
+    private ItemStack createGuiItem(String name, String...lore) {
+        ItemStack item = new ItemStack(Material.PAPER, 1);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(name);
+        meta.setDisplayName(name);  //Cannot be NULL solution?
         ArrayList<String> metaLore = new ArrayList<String>();
 
-        for(String loreComments : lore) {
-            metaLore.add(loreComments);
-        }
+        Collections.addAll(metaLore, lore);
 
         meta.setLore(metaLore);
         item.setItemMeta(meta);

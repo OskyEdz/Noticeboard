@@ -11,14 +11,26 @@ public class BoardCommand extends BoardGUI implements CommandExecutor {
     // This method is called, when somebody uses our command
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String noticeboard, String[] args) {
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
+        if (args.length == 0) { // Command issue with no arguments
+            if (!(sender instanceof ConsoleCommandSender)) { // Define that it's the player sending the command
+                Player player = (Player) sender;
 
-            openInventory(player);
-        }
-        if (sender instanceof ConsoleCommandSender) {
-            System.out.println("This command is a GUI, run in-game.");
-        }
-        return true;
+                openInventory(player); // Open the noticeboard
+                return true;
+            } else {
+                // If console tries to run command
+                System.out.println("This command is a GUI, run in-game.");
+            }
+        } else {
+            if (args[0].equalsIgnoreCase("new")) { // Command issue with argument "new"
+                if (args.length > 3) { // Even more arguments
+
+                    for (String str: args) {  // Merge all arguments to one string.
+                        createGuiItem(args[2], str);
+                        return true;
+                    }
+                } else { return false; }
+            }
+        } return false;
     }
 }

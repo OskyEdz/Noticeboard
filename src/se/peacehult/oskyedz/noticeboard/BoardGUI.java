@@ -37,7 +37,7 @@ public class BoardGUI implements InventoryHolder, Listener {
     }
 
     // Nice little method to create a gui item with a custom name, and description
-    private ItemStack createGuiItem(String name, String...lore) {
+    public ItemStack createGuiItem(String name, String...lore) {
         ItemStack item = new ItemStack(Material.PAPER, 1);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);  //Cannot be NULL solution?

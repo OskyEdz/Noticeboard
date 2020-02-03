@@ -8,3 +8,6 @@ commands:
   noticeboard:
     description: Open a Notice Board
     usage: Use §c/noticeboard
+  noticeboard new:
+    description: Add a new notice
+    usage: Use §c/noticeboard new <Title> <lore>
